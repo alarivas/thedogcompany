@@ -1,0 +1,22 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+
+<h1>Laptops</h1>
+<ul>
+{% for laptop in object_list %}
+	<li>{{ laptop.model }}</li>
+	<ul> 
+		<li><a href="{% url 'laptop_detail' laptop.pk %}"> (Read) </a></li>
+		<li><a href="{% url 'laptop_update' laptop.pk %}"> (Update) </a></li>
+		<li><a href="{% url 'laptop_delete' laptop.pk %}"> (Delete) </a></li>
+	</ul>
+{% empty %}
+	<li>No laptops.</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'laptop_create' %}">Create new Laptop</a><br>
+<a href="{% url 'model_list' %}">Back</a>
+
+{% endblock content %}

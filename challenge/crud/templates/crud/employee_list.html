@@ -1,0 +1,23 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+
+<h1>Employees</h1>
+<ul>
+{% for employee in object_list %}
+	<li>{{ employee.name }}</li> 
+	<ul> 
+		<li><a href="{% url 'employee_detail' employee.pk %}"> (Read) </a></li>
+		<li><a href="{% url 'employee_update' employee.pk %}"> (Update) </a></li>
+		<li><a href="{% url 'employee_delete' employee.pk %}"> (Delete) </a></li>
+	</ul>
+{% empty %}
+	<li>No employees.</li>
+{% endfor %}
+</ul>
+
+
+<a href="{% url 'employee_create' %}">Create new Employee</a><br>
+<a href="{% url 'model_list' %}">Back</a>
+
+{% endblock content %}

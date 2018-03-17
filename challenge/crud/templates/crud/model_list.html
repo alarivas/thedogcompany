@@ -1,0 +1,12 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+
+<h1>Models</h1>
+<ul>
+	<li><a href="{% url 'company_list' %}"> Company </a></li>
+	<li><a href="{% url 'laptop_list' %}"> Laptop </a></li>
+	<li><a href="{% url 'employee_list' %}"> Employee </a></li>
+</ul>
+
+{% endblock content %}
